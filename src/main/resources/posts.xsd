@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://io.github.untalsanders/ws/soap"
+           targetNamespace="https://io.github.untalsanders/ws/soap" elementFormDefault="qualified">
+
+    <xs:element name="getPostRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPostResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="post" type="tns:post"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="post">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="published" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
