@@ -1,7 +1,7 @@
-package io.github.untalsanders.ws.demo;
+package io.github.untalsanders.ws.weblog;
 
-import io.github.untalsanders.ws.demo.soap.GetPostRequest;
-import io.github.untalsanders.ws.demo.soap.GetPostResponse;
+import io.github.untalsanders.ws.weblog.soap.PostRequest;
+import io.github.untalsanders.ws.weblog.soap.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -19,10 +19,10 @@ public class PostEndpoint {
         this.repository = repository;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPostRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "postRequest")
     @ResponsePayload
-    public GetPostResponse getPost(@RequestPayload GetPostRequest request) {
-        GetPostResponse response = new GetPostResponse();
+    public PostResponse getPost(@RequestPayload PostRequest request) {
+        PostResponse response = new PostResponse();
         response.setPost(repository.findPostById(request.getId()));
         return response;
     }

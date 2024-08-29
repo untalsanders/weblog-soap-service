@@ -1,6 +1,4 @@
-package io.github.untalsanders.ws.demo.domain.repository;
-
-import io.github.untalsanders.ws.demo.domain.model.Post;
+package io.github.untalsanders.ws.weblog.posts.domain;
 
 import java.util.Optional;
 
@@ -14,7 +12,8 @@ public interface PostRepository {
     /**
      * Retrieve a <code>Post</code>s from the data store.
      *
+     * @param id the id to search for
      * @return <code>Optional</code> of <code>Post</code>
      */
-    Optional<Post> findById(Long id);
+    Optional<Post> findById(String id);
 }

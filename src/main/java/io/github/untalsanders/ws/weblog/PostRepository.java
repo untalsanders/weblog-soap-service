@@ -1,8 +1,9 @@
-package io.github.untalsanders.ws.demo;
+package io.github.untalsanders.ws.weblog;
 
-import io.github.untalsanders.ws.demo.soap.Post;
+import io.github.untalsanders.ws.weblog.soap.Post;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,6 +40,7 @@ public class PostRepository {
     }
 
     public Post findPostById(Long id) {
+        Assert.notNull(id, "id must not be null");
         return posts.get(id);
     }
 }

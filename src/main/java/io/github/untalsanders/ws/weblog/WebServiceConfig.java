@@ -1,4 +1,4 @@
-package io.github.untalsanders.ws.demo;
+package io.github.untalsanders.ws.weblog;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

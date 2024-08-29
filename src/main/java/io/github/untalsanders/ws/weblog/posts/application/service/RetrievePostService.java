@@ -1,9 +1,9 @@
-package io.github.untalsanders.ws.demo.application.service;
+package io.github.untalsanders.ws.weblog.posts.application.service;
 
-import io.github.untalsanders.ws.demo.domain.exception.PostNotFoundException;
-import io.github.untalsanders.ws.demo.domain.model.Post;
-import io.github.untalsanders.ws.demo.domain.repository.PostRepository;
-import io.github.untalsanders.ws.demo.domain.usecase.RetrievePostUseCase;
+import io.github.untalsanders.ws.weblog.posts.domain.PostNotFoundException;
+import io.github.untalsanders.ws.weblog.posts.domain.Post;
+import io.github.untalsanders.ws.weblog.posts.domain.PostRepository;
+import io.github.untalsanders.ws.weblog.posts.domain.RetrievePostUseCase;
 
 import java.util.Optional;
 
@@ -15,7 +15,7 @@ public class RetrievePostService implements RetrievePostUseCase {
     }
 
     @Override
-    public Optional<Post> getPost(Long id) throws PostNotFoundException {
+    public Optional<Post> getPost(String id) throws PostNotFoundException {
         Optional<Post> post = postRepository.findById(id);
         if (post.isEmpty()) {
             throw new PostNotFoundException("Post not found");

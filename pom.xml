@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>io.github.untalsanders.ws</groupId>
-    <artifactId>demo-soap-webservice</artifactId>
+    <artifactId>weblog-soap-webservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>demo-soap-webservice</name>
+    <name>Weblog SOAP web service</name>
     <description>demo-soap-webservice</description>
 
     <properties>
@@ -45,12 +45,24 @@
     <dependencies>
         <!-- Production -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web-services</artifactId>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
         </dependency>
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -109,7 +121,7 @@
                     <sources>
                         <source>src/main/resources/posts.xsd</source>
                     </sources>
-                    <packageName>io.github.untalsanders.ws.demo.soap</packageName>
+                    <packageName>io.github.untalsanders.ws.weblog.soap</packageName>
                     <clearOutputDir>true</clearOutputDir>
                 </configuration>
             </plugin>
