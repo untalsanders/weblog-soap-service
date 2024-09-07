@@ -1,4 +1,4 @@
-package io.github.untalsanders.ws.weblog.posts.domain;
+package io.github.untalsanders.ws.weblog.posts.domain.exception;
 
 /**
  * A class that extends <code>RuntimeException</code> to customize the error

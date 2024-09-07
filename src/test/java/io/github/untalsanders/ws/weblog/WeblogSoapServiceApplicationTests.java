@@ -1,5 +1,6 @@
 package io.github.untalsanders.ws.weblog;
 
+import io.github.untalsanders.ws.weblog.posts.infrastructure.soap.endpoint.PostEndpoint;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

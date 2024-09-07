@@ -1,4 +1,4 @@
-package io.github.untalsanders.ws.weblog.posts.domain;
+package io.github.untalsanders.ws.weblog.posts.domain.model;
 
 import io.github.untalsanders.ws.weblog.shared.domain.Identifier;
 
