@@ -1,6 +1,6 @@
 package io.github.untalsanders.ws.weblog;
 
-import io.github.untalsanders.ws.weblog.posts.infrastructure.persistence.OnMemoryPostRepository;
+import io.github.untalsanders.ws.weblog.posts.infrastructure.persistence.InMemoryPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class WeblogSoapServiceApplication {
     @Autowired
-    private final OnMemoryPostRepository repository;
+    private final InMemoryPostRepository repository;
 
-    public WeblogSoapServiceApplication(OnMemoryPostRepository repository) {
+    public WeblogSoapServiceApplication(InMemoryPostRepository repository) {
         this.repository = repository;
     }
 

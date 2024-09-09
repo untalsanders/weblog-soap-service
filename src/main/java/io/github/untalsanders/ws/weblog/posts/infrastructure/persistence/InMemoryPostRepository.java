@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public class OnMemoryPostRepository implements PostRepository {
+public class InMemoryPostRepository implements PostRepository {
     private static final Map<String, PostModel> posts = new HashMap<>();
 
     @PostConstruct
