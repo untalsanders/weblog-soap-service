@@ -10,12 +10,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>io.github.untalsanders.ws</groupId>
-    <artifactId>weblog-soap-webservice</artifactId>
+    <groupId>io.github.untalsanders</groupId>
+    <artifactId>weblog-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Weblog SOAP web service</name>
-    <description>demo-soap-webservice</description>
+    <name>Weblog Service</name>
+    <description>Weblog web service</description>
 
     <properties>
         <java.version>17</java.version>
@@ -99,7 +99,7 @@
                     <sources>
                         <source>src/main/resources/posts.xsd</source>
                     </sources>
-                    <packageName>io.github.untalsanders.ws.weblog.soap</packageName>
+                    <packageName>io.github.untalsanders.weblog.soap</packageName>
                     <clearOutputDir>true</clearOutputDir>
                 </configuration>
             </plugin>
