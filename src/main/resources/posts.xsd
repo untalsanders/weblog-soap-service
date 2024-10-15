@@ -5,7 +5,7 @@
     <xs:element name="postRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id" type="xs:long"/>
+                <xs:element name="id" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -18,9 +18,17 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="postListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="posts" type="tns:post" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:complexType name="post">
         <xs:sequence>
-            <xs:element name="id" type="xs:long"/>
+            <xs:element name="id" type="xs:string"/>
             <xs:element name="title" type="xs:string"/>
             <xs:element name="content" type="xs:string"/>
             <xs:element name="published" type="xs:boolean"/>

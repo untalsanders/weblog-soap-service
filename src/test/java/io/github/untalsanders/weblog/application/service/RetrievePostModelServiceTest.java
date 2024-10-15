@@ -1,10 +1,10 @@
-package io.github.untalsanders.ws.weblog.application.service;
+package io.github.untalsanders.weblog.application.service;
 
-import io.github.untalsanders.ws.weblog.posts.application.service.RetrievePostService;
-import io.github.untalsanders.ws.weblog.posts.domain.Post;
-import io.github.untalsanders.ws.weblog.posts.domain.PostId;
-import io.github.untalsanders.ws.weblog.posts.domain.PostNotFoundException;
-import io.github.untalsanders.ws.weblog.posts.domain.PostRepository;
+import io.github.untalsanders.weblog.posts.application.service.PostService;
+import io.github.untalsanders.weblog.posts.domain.model.PostModel;
+import io.github.untalsanders.weblog.posts.domain.model.PostId;
+import io.github.untalsanders.weblog.posts.domain.exception.PostNotFoundException;
+import io.github.untalsanders.weblog.posts.domain.repository.PostRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,26 +20,26 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class RetrievePostServiceTest {
+class RetrievePostModelServiceTest {
     @Mock
     private PostRepository postRepository;
 
     @InjectMocks
-    private RetrievePostService service;
+    private PostService service;
 
     @Test
     @DisplayName("Should retrieve a post")
     public void shouldRetrievePost() {
         final PostId postId = new PostId(UUID.randomUUID().toString());
-        final Post postToRetrieve = new Post(postId, "Post #1", "Post number one", true);
+        final PostModel postModelToRetrieve = new PostModel(postId, "Post #1", "Post number one", true);
 
-        when(postRepository.findById(postId.value())).thenReturn(Optional.of(postToRetrieve));
-        final Optional<Post> postRetrieved = service.getPost(postId.value());
+        when(postRepository.findById(postId.value())).thenReturn(Optional.of(postModelToRetrieve));
+        final Optional<PostModel> postRetrieved = service.getPostById(postId.value());
         assertThat(postRetrieved.isPresent()).isTrue();
-        assertEquals(postRetrieved.get().id().value(), postId.value());
-        assertThat(postRetrieved.get().title()).contains("Post #1");
-        assertThat(postRetrieved.get().content()).contains("Post number one");
-        assertTrue(postRetrieved.get().published());
+        assertEquals(postRetrieved.get().getId().value(), postId.value());
+        assertThat(postRetrieved.get().getTitle()).contains("Post #1");
+        assertThat(postRetrieved.get().getContent()).contains("Post number one");
+        assertTrue(postRetrieved.get().getPublished());
     }
 
     @Test
@@ -47,7 +47,7 @@ class RetrievePostServiceTest {
     public void shouldNotRetrievePostIfPostNotFound() {
         final PostId postId = new PostId(UUID.randomUUID().toString());
         when(postRepository.findById(postId.value())).thenReturn(Optional.empty());
-        RuntimeException runtimeException = assertThrows(PostNotFoundException.class, () -> service.getPost(postId.value()));
+        RuntimeException runtimeException = assertThrows(PostNotFoundException.class, () -> service.getPostById(postId.value()));
         String expectedMessage = "Post not found";
         assertThat(runtimeException.getMessage()).isEqualTo(expectedMessage);
     }

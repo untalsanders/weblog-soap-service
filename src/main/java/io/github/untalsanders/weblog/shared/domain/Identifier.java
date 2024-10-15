@@ -1,4 +1,4 @@
-package io.github.untalsanders.ws.weblog.shared.domain;
+package io.github.untalsanders.weblog.shared.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,9 +16,11 @@ public abstract class Identifier implements Serializable {
         ensureValidUuid(value);
         this.value = value;
     }
+
     public String value() {
         return value;
     }
+
     private void ensureValidUuid(String value) throws IllegalArgumentException {
         UUID.fromString(value);
     }

@@ -1,5 +1,8 @@
-package io.github.untalsanders.ws.weblog.posts.domain;
+package io.github.untalsanders.weblog.posts.domain.repository;
 
+import io.github.untalsanders.weblog.posts.domain.model.PostModel;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -10,10 +13,17 @@ import java.util.Optional;
  */
 public interface PostRepository {
     /**
+     * Retrieve all <code>Post</code>s from the data store.
+     *
+     * @return <code>List</code> of <code>Post</code>s
+     */
+    List<PostModel> findAll();
+
+    /**
      * Retrieve a <code>Post</code>s from the data store.
      *
      * @param id the id to search for
      * @return <code>Optional</code> of <code>Post</code>
      */
-    Optional<Post> findById(String id);
+    Optional<PostModel> findById(String id);
 }
