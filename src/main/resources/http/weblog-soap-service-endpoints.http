@@ -1,3 +1,22 @@
+
+### GET Posts
+POST {{BASE_URL}}/ws/
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="https://io.github.untalsanders/ws/soap">
+    <soapenv:Body>
+        <soap:postListResponse/>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+> {%
+    const id = response.body.id
+    client.test("GET all posts returns 200", function () {
+        client.assert(response.status === 200, `Expected 200 but was: ${response.status}`)
+    })
+%}
+
+
 ### GET a Post
 @id=3
 POST {{BASE_URL}}/ws/
