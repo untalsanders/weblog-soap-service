@@ -14,6 +14,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class PostSoapWebServiceConfig {
+    private static final String NAMESPACE_URI = "https://io.github.untalsanders/ws/soap";
+
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -28,7 +30,7 @@ public class PostSoapWebServiceConfig {
         wsdl11Definition.setPortTypeName("PostsPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setServiceName("Posts");
-        wsdl11Definition.setTargetNamespace("https://io.github.untalsanders/ws/soap");
+        wsdl11Definition.setTargetNamespace(NAMESPACE_URI);
         wsdl11Definition.setSchema(postSchema);
         return wsdl11Definition;
     }
